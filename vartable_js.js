@@ -7,11 +7,12 @@ var server = http.createServer(app)
 var vartable={}
 app.get('/', function(req, res) {
   var varname = req.query['varname']
-  if (varname == null)
+  if (varname == null) {
     res.send(JSON.stringify(vartable))
     return
-  if (req.query['set'] != null)
+  } if (req.query['set'] != null) {
     vartable[varname] = req.query['set']
+  }
   res.send(vartable[varname])
 })
 
